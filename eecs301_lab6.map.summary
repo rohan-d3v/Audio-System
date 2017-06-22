@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Thu Dec 15 15:48:04 2016
+Quartus II 64-Bit Version : 15.0.2 Build 153 07/15/2015 SJ Full Version
+Revision Name : eecs301_lab6
+Top-level Entity Name : eecs301_lab6
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 120
+Total pins : 175
+Total virtual pins : 0
+Total block memory bits : 12,288
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1
+Total DLLs : 0

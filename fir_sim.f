@@ -1,0 +1,9 @@
+fir_sim/fir.vo
+fir_sim/fir_nativelink.tcl
+fir_sim/fir_msim.tcl
+fir_sim/fir_tb.vhd
+fir_sim/fir_mlab.m
+fir_sim/fir_model.m
+fir_sim/fir_coef_int.txt
+fir_sim/fir_input.txt
+fir_sim/fir_param.txt
