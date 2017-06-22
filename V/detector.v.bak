@@ -1,0 +1,14 @@
+/*
+Rohan Krishna Ramkhumar, rxr353
+Sydney Tenaglia, snt21
+*/
+module detector(
+					input clk,
+					input valid,
+					input [11:0] data,
+					output [11:0] peak
+					);
+					
+wire rst;
+
+peakrst peakreset(.clk(clk), .rst(rst));

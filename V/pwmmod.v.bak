@@ -1,0 +1,9 @@
+/*
+Rohan Krishna Ramkhumar, rxr353
+Sydney Tenaglia, snt21
+*/
+module pwmmod(
+				input valid,
+				input [11:0] duty,
+				output reg [11:0] pwmmod
+				);

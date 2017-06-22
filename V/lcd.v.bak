@@ -1,0 +1,77 @@
+module lcd(
+					input clk,							
+					input [11:0] high,			
+					input [11:0] low,				
+					input [8:0] addr,			
+					input valid,					
+					input [8:0] line, 			
+					input [9:0] pxl,			
+					output reg [7:0] red,
+					output reg [7:0] green,
+					output reg [7:0] blue,
+					output reg [8:0] read			
+					);
+	reg [11:0] datalow;
+	reg [11:0] datahigh;
+	
+	reg [8:0] first;						
+	reg [9:0] buffer;					
+
+	always
+		begin
+			datalow <= low;
+			datahigh <= high;
+		end
+	
+	always@(posedge clk)
+		begin
+			// LCD output
+			if (valid)
+				begin
+					// high pass pk values output
+					if (pxl >= 96 && pxl <= 191)
+						begin
+							red <= {datahigh[11:6], 2'b0};
+							green <= {datahigh[5:2], 4'b0};
+							blue <= {3'b0, datahigh[1:0], 3'b0};
+						end
+					
+					// low pass pk values output
+					else if (pxl >= 287 && pxl <= 383)
+						begin
+							blue <= {datalow[11:6], 2'b0};
+							green <= {datalow[5:2], 4'b0};
+							red <= {3'b0, datalow[1:0], 3'b0};
+						end
+						
+					// background
+					else
+						begin
+							red <= 8'h00;
+							green <= 8'h00;
+							blue <= 8'h00;
+						end
+				end
+			else
+				begin
+					red <= 8'h00;
+					green <= 8'h00;
+					blue <= 8'h00;
+				end
+				
+			// Generate addr_read
+			if (line == 0)
+				first <= write;
+			
+			buffer <= first + line;
+			
+			if (buffer >= 10'd272)
+				addr_read <= buffer - 10'd272;
+			else
+				addr_read <= buffer;
+		
+		end
+	
+	
+
+endmodule

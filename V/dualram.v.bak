@@ -1,0 +1,20 @@
+/*
+*/
+module dualram(
+					input [11:0] data,
+					input [8:0] writein,
+					input [8:0] readin,
+					input en,
+					input clk,
+					output [11:0] writeout,
+					output [11:0] readout
+					);
+reg [11:0] ram [512:0];
+
+reg [8:0] addrread;
+reg [8:0] addrwrite;
+
+
+assign writeout = ram[addrwrite];
+assign readout = ram[addrread];
+

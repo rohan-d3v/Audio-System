@@ -1,0 +1,11 @@
+/*
+Rohan Krishna Ramkhumar, rxr353
+Sydney Tenaglia, snt21
+*/
+module analog(
+				input clk,
+				input valid,
+				input [11:0] din,
+				output dout,
+				output sync
+				);
